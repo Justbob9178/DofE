@@ -1,1 +1,2 @@
 add info about the cat or dog (breed) https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoHBz-8t#getting-one-image-by-id
+sometimes will not workk idk why

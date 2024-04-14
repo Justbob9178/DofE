@@ -1,2 +1,3 @@
-add info about the cat or dog (breed) https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoHBz-8t#getting-one-image-by-id
-sometimes will not workk idk why
+done :) add info about the cat or dog (breed) https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoHBz-8t#getting-one-image-by-id
+image not load when you open page
+selecting the breed dosent work

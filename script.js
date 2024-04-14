@@ -1,19 +1,15 @@
-async function getAnimal(){
-    await updateURL(currentAnimal)
-    data = await fetch(url);
-    response = await data.json()
-    console.log(response)
-    document.getElementById('image').setAttribute('src', response[0].url)
-    document.getElementById('image').style.width = '50%'
-    document.getElementById('image').style.height = '50%'
-}
-
 async function refreshPicture(){
     document.getElementById('image').setAttribute('src', "assets/loading.gif")
     await updateURL(currentAnimal)
-    data = await fetch(url);
+    data = await fetch(await updateURL(currentAnimal));
     response = await data.json()
-    console.log(response)
+    useme = response[0]
+    console.log(useme)
+    document.getElementById('breed').innerHTML = 'breed : ' + useme.breeds[0].name
+    document.getElementById('weight').innerHTML = 'weight : ' + useme.breeds[0].weight.metric + ' kg'
+    document.getElementById('life-span').innerHTML = 'life span : ' + useme.breeds[0].life_span + ' years'
+    document.getElementById('origin').innerHTML = 'country of origin : ' + useme.breeds[0].origin
+    //console.log(response)
     document.getElementById('image').setAttribute('src', response[0].url)
     document.getElementById('image').style.width = '50%'
     document.getElementById('image').style.height = '50%'
@@ -30,7 +26,7 @@ async function catPress(){
 
     await updateURL(currentAnimal)
 
-    animalElement.innerHTML = String(currentAnimal)
+    //animalElement.innerHTML = String(document.getElementById('breedname').innerHTML) + String(currentAnimal)
 }
 
 async function dogPress(){
@@ -48,16 +44,15 @@ async function dogPress(){
 }
 
 async function updateURL(currentAnimal){
-    if(currentAnimal == 'cat'){
-        await upcat();
-        breed = catbreed
-    } else if(currentAnimal == 'dog'){
-        await updog()
-        breed = dogbreed
-    }else {
-        breed = ''
-    }
-    url = 'https://api.the' + currentAnimal + 'api.com/v1/images/search?breed_ids=' + breed + '&api_key=live_uv6K2UsMNNq6ZCLhPmPIdemrwngaEVguxl8MvcO5bVKldlbQy4lp7hgTPc2qOY3Y'
+    upcat()
+    updog()
+    if(document.getElementById('breedid').innerHTML && document.getElementById('catbreedbutton').checked){
+        breedid = document.getElementById('breedid').innerHTML
+        query = 'breed_ids=' + breedid + '&'
+    } else query = ''
+
+    console.log(query)
+    let url = 'https://api.the' + currentAnimal + 'api.com/v1/images/search?' + query + 'has_breeds=1&api_key=live_uv6K2UsMNNq6ZCLhPmPIdemrwngaEVguxl8MvcO5bVKldlbQy4lp7hgTPc2qOY3Y'
     console.log(url)
     return url;
 }
@@ -68,15 +63,14 @@ let currentAnimal = 'cat'
 
 
 
-getAnimal()
+refreshPicture()
 
 
 async function upcat() {
     var select = document.getElementById('cat');
     var option = select.options[select.selectedIndex];
-    console.log(option)
-    document.getElementById('value').innerHTML = option.value;
-    catbreed = option.value
+    console.log(select)
+    document.getElementById('breedid').innerHTML = option.value;
 }
 
 upcat();
@@ -85,9 +79,9 @@ upcat();
 async function updog() {
     var select = document.getElementById('dog');
     var option = select.options[select.selectedIndex];
-    console.log(option)
-    document.getElementById('value').innerHTML = option.value;
-    dogbreed = option.value
+    console.log(select)
+    document.getElementById('breedid').innerHTML = option.value;
+    document.getElementById('breedname').innerHTML = String(select)
 }
 
 

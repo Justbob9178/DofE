@@ -11,6 +11,11 @@
 <body>
     <h1>This is my app for my dofe skill.<br>I am not sure what will happen to it.</h1><br>
     
+    <button id="catBut" onclick="catPress()">cat</button>
+    <h4 id="catbreed">search for breeds</h4>
+    <input id="catbreedbutton" type="checkbox">
+    <label id="catform" for="cat"></label>
+
     <select id="cat">
         <option value="abys">Abyssinian</option>
         <option value="aege">Aegean</option>
@@ -80,6 +85,13 @@
         <option value="tvan">Turkish Van</option>
         <option value="ycho">York Chocolate</option>
     </select>
+
+    <br>
+
+    <button id="dogBut" onclick="dogPress()">dog</button>
+    <h4 id="dogbreed">search for breeds</h4>
+    <input id="dogbreedbutton" type="checkbox">
+    <label for="dog"></label>
 
     <select id="dog">
         <option value="1">Affenpinscher</option>
@@ -256,16 +268,16 @@
         <option value="264">Yorkshire Terrier</option>
     </select>
 
-    <h3 id="value"></h3>
-    <h3 id="text"></h3>
-
-    <button id="catBut" onclick="catPress()">cat</button>
-    <button id="dogBut" onclick="dogPress()">dog</button>
+    <h3 hidden id="breedid"></h3>
+    <h3 hidden id="breedname">Abyssinian</h3>
     
-    <br>
-    <h2>Search for '<span id="animal">cat</span>' pictures.</h2>
-    <h4>info:
+
+    <h2 hidden>Search for '<span id="animal">Abyssinian cat</span>' pictures.</h2>
+    <h4>
         <br><span id="breed">no info found</span><br>
+        <span id="weight"></span><br>
+        <span id="life-span"></span><br>
+        <span id="origin"></span>
 
     </h4>
     <br>

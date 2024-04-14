@@ -3,6 +3,7 @@
     border-color: black;
     border-radius: 4px;
     font-size: large;
+    display: inline-block;
 }
 
 #dogBut{
@@ -10,6 +11,7 @@
     border-color: black;
     border-radius: 4px;
     font-size: large;
+    display: inline-block;
 }
 
 #refresh{
@@ -17,3 +19,20 @@
     border-radius: 4px;
     border-color: black;
 }
+
+#catbreed{
+    display: inline-block;
+}
+
+#catbreedbutton{
+    display: inline-block;
+}
+
+#dogbreed{
+    display: inline-block;
+}
+
+#dogbreedbutton{
+    display: inline-block;
+}
+
